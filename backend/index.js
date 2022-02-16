@@ -4,6 +4,10 @@ const dotenv = require('dotenv')
 const mongoose = require('mongoose')
 const helmet = require('helmet')
 const morgan = require('morgan')
+
+const userRoute = require("./routes/users")
+
+
 dotenv.config()
 
 //mongo connection :
@@ -16,6 +20,7 @@ app.use(express.json())
 app.use(helmet())
 app.use(morgan("common"))
 
+app.use("/api/user", userRoute);
 
 
 app.listen(5000,()=>{
